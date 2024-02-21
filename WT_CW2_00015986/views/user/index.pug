@@ -1,0 +1,33 @@
+include ../head.pug
+body
+    .container.form-container
+        form#form(action='#')
+            div
+                label
+                    p Full name
+                    input#fullname.input(type='text' placeholder='John Doe' required='')
+                label
+                    p Phone number
+                    input#phone_number.input(type='text' placeholder='+998977707070' required='')
+                label
+                    p Address
+                    input#address.input(type='text' placeholder='City, district, street' required='')
+            .inline-inputs
+                label(for='')
+                    p gender
+                    select#gender.input(name='gender')
+                        option(value='male') Male
+                        option(value='female') Female
+                label(for='')
+                    p Date of birth
+                    input#birth_date.input(type='date' required='')
+            div
+                label(for='')
+                    p Patient analysis
+                    input#analysis.input(type='text' placeholder='Analysis type' required='')
+                div(id="error")
+                .btn-container
+                    button#save.btn(type='submit') Save
+            container
+                .clients
+                .client-info
