@@ -1,7 +1,23 @@
 include ../head.pug
 body
+    header
+        nav.nav
+            p(style='color: rgb(184, 183, 183)')
+                | This web application was created to fulfill Web Technology
+                | module&rsquo;s requirements and does not represent an actual
+                | company or service
+            .div_navigation-links
+                ul.ul-links
+                    li
+                        a See all patients
+                    li
+                        a(href='http://localhost:4000/user/register') Register a new patient
+                    li
+                        a Update patient&apos;s data
+                    li
+                        a Delete patient&apos;s data
     .container.form-container
-        form#form(action='#')
+        form#form(action="/api/user/register" method="POST")
             div
                 label
                     p Full name
@@ -28,6 +44,3 @@ body
                 div(id="error")
                 .btn-container
                     button#save.btn(type='submit') Save
-            container
-                .clients
-                .client-info

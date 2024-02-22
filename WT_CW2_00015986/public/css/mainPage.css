@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    width: 100%;
+}
+.nav {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px;
+    background-color: rgb(53, 99, 99);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+.ul-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin: 20px 0;
+}
+a {
+    color: rgb(146, 141, 45);
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(181, 174, 43);
+    cursor: pointer;
+}
+.div_background-img img {
+    width: 100%;
+    height: 100%;
+}

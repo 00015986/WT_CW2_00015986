@@ -6,7 +6,7 @@
 
 body {
     background-color: #ada7f0;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: "Noto Sans", sans-serif;
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
 
 .form-container {
     padding: 50px 145px;
-    margin-top: 30px;
+    margin-top: 150px;
     margin-bottom: 30px;
 }
 
@@ -70,22 +70,4 @@ label {
     flex-wrap: wrap;
     column-gap: 25px;
     row-gap: 25px;
-}
-
-.client-info {
-    padding: 25px 75px;
-}
-
-.client {
-    height: 40px;
-    padding: 0 30px;
-    border-radius: 20px;
-    border: 1px solid #7a5cfa;
-    cursor: pointer;
-    line-height: 40px;
-}
-
-.active {
-    background-color: #7a5cfa;
-    color: white;
 }
