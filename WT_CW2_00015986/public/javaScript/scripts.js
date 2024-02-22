@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Clear previous errors
         const errorElement = document.getElementById("error");
         if (errorElement) errorElement.textContent = "";
 
@@ -32,17 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // If validation passes, proceed with Axios POST request
         axios
             .post("/api/user/register", { fullname, phone_number, address, gender, birth_date, analysis })
             .then(function (response) {
                 alert("User has been successfully added");
-                // Handle success, maybe redirect or show a success message
                 location.href = "/user/register";
             })
             .catch(function (error) {
                 if (error.response && error.response.data) {
-                    // Assuming the server responds with an error message under "message"
                     showError(
                         error.response.data.errors
                             .map((error) => error.msg)
@@ -50,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         form
                     );
                 } else {
-                    // Generic error message if the response cannot be parsed
                     showError("An error occurred. Please try again.", form);
                 }
             });
@@ -68,12 +63,12 @@ function validateAddress(address) {
 }
 
 function validateNumber(phone_number) {
-    const phone_regEx =
-        /^+998([- ])?(90|91|93|94|95|98|99|33|97|71)([- ])?(\d{3})([- ])?(\d{2})([- ])?(\d{2})$/
-    return phone_regEx.test(String(phone_number));
+    const phone_regEx = /^\+998([- ])?(90|91|93|94|95|98|99|33|97|71)([- ])?(\d{3})([- ])?(\d{2})([- ])?(\d{2})$/;
+    return phone_regEx.test(phone_number);
 }
 function validateAnalysis(analysis) {
     const analysis_regEx = /^(?=\s*\S)(.{4,})$/
+    return analysis_regEx.test(String(analysis))
 }
 
 function showError(message, form) {

@@ -2,18 +2,12 @@ const { body } = require("express-validator");
 
 const registerValidationRules = () => {
     return [
-        body("email").isEmail().withMessage("Enter a valid email address"),
-        body("password")
-            .notEmpty()
-            .withMessage("Password must not be empty")
-            .isLength({ min: 8, max: 16 })
-            .withMessage("Password must be between 8 and 16 characters long")
-            .not()
-            .matches(/\s/)
-            .withMessage("Password must not contain spaces")
-            .not()
-            .matches(/-/)
-            .withMessage("Password must not contain hyphens"),
+        body("fullname").notEmpty().withMessage("Fullname must not be empty"),
+        body("phone_number").notEmpty().withMessage("Phone number must not be empty"),
+        body("address").notEmpty().withMessage("Address must not be empty"),
+        body("gender").notEmpty().withMessage("Gender must not be empty"),
+        body("birth_date").notEmpty().withMessage("Birth date must not be empty"),
+        body("analysis").notEmpty().withMessage("Please enter your analysis"),
     ];
 };
 

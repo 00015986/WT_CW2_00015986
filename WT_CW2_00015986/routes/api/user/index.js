@@ -5,7 +5,6 @@ const { registerValidationRules } = require("../../../validators/user");
 const router = express.Router();
 const user_controller = require("../../../controllers/api/user");
 
-// Define API routes
 router.post("/register", registerValidationRules(), (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
