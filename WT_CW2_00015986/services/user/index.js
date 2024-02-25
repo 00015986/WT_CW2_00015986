@@ -19,12 +19,10 @@ const user_service = {
             birth_date: body.birth_date,
             analysis: body.analysis
         };
-
-        users.push({
+        users.unshift({
             id: new_id,
             user: user,
-        });
-
+        })
         writeToFile(users);
 
         return {

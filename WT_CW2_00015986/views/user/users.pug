@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title User List
+    link(rel="stylesheet", href="/css/registerForm.css")
+    link(rel="stylesheet", href="/css/navbar.css")
+  body
+    nav.nav
+      p(style='color: rgb(184, 183, 183)')
+        | This web application was created to fulfill Web Technology
+        | module&rsquo;s requirements and does not represent an actual
+        | company or service
+      .div_navigation-links
+        ul.ul-links
+          li
+              a(href='http://localhost:4000/all-users') See all patients
+          li
+              a(href='http://localhost:4000/user/register') Register a new patient
+    .container.form-container
+      h1 User List
+      each user in users_data
+        .user
+          p
+            strong Fullname: 
+            | #{user.user.fullname}
+          p
+            strong Phone Number: 
+            | #{user.user.phone_number}
+          p
+            strong Address: 
+            | #{user.user.address}
+          p
+            strong Gender: 
+            | #{user.user.gender}
+          p
+            strong Birth Date: 
+            | #{user.user.birth_date}
+          p
+            strong Analysis: 
+            | #{user.user.analysis}
+          div.buttons
+            button.edit_button.change_button
+              a(href=`edit/${user.id}`) Edit
+            button.delete_button.change_button
+              a(href=`delete/${user.id}`) Delete

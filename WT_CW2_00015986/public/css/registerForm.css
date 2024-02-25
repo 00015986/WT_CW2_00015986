@@ -71,3 +71,35 @@ label {
     column-gap: 25px;
     row-gap: 25px;
 }
+
+.user {
+    background-color: #ada7f0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 15px;
+}
+
+.user p {
+    margin-top: 5px;
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+.change_button {
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+    outline: 0px;
+    border: none;
+    margin-top: 5px;
+}
+.change_button a {
+    color: whitesmoke;
+}
+.edit_button {
+    background-color: green;
+}
+.delete_button {
+    background-color: rgb(142, 29, 29);
+}

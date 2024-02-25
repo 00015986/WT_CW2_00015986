@@ -13,30 +13,31 @@ body
                     li
                         a(href='http://localhost:4000/user/register') Register a new patient
     .container.form-container
-        form#form(action="/api/user/register" method="POST")
+        form#form(action=`/api/user/update/${user.id}` method="POST")
             div
+                h4 #{user.user.fullname}
                 label
                     p Full name
-                    input#fullname.input(type='text' placeholder='John Doe' required='')
+                    input#fullname.input(type='text' value=`${user.user.fullname}` required='')
                 label
                     p Phone number
-                    input#phone_number.input(type='text' placeholder='+998-97-770-70-70' required='')
+                    input#phone_number.input(type='text' value=`${user.user.phone_number}` required='')
                 label
                     p Address
-                    input#address.input(type='text' placeholder='City, district, street' required='')
+                    input#address.input(type='text' value=`${user.user.address}` required='')
             .inline-inputs
                 label(for='')
                     p gender
-                    select#gender.input(name='gender')
+                    select#gender.input(name='gender' value=`${user.user.gender}`)
                         option(value='male') Male
                         option(value='female') Female
                 label(for='')
                     p Date of birth
-                    input#birth_date.input(type='date' required='')
+                    input#birth_date.input(type='date' required='' value=`${user.user.birth_date}`)
             div
                 label(for='')
                     p Patient analysis
-                    input#analysis.input(type='text' placeholder='Analysis type' required='')
+                    input#analysis.input(type='text' value=`${user.user.analysis}` required='')
                 div(id="error")
                 .btn-container
-                    button#save.btn(type='submit') Save
+                    button#save.btn(type='submit') Update

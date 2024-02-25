@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .post("/api/user/register", { fullname, phone_number, address, gender, birth_date, analysis })
             .then(function (response) {
                 alert("User has been successfully added");
-                location.href = "/user/register";
+                location.href = "/all-users";
             })
             .catch(function (error) {
                 if (error.response && error.response.data) {
