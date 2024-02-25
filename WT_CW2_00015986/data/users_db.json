@@ -1,34 +1,12 @@
 [
     {
-        "id": 1708711796915,
+        "id": 1708865148775,
         "user": {
             "fullname": "Olima",
             "phone_number": "+998-90-123-45-67",
-            "address": "New York",
+            "address": "new york",
             "gender": "female",
-            "birth_date": "2024-02-08",
-            "analysis": "blood"
-        }
-    },
-    {
-        "id": 1708605705412,
-        "user": {
-            "fullname": "Olim",
-            "phone_number": "+998-90-123-45-67",
-            "address": "New York",
-            "gender": "male",
-            "birth_date": "2024-02-08",
-            "analysis": "blood"
-        }
-    },
-    {
-        "id": 1708703962541,
-        "user": {
-            "fullname": "Akmal",
-            "phone_number": "+998-90-123-45-67",
-            "address": "Mirobod, 4 district",
-            "gender": "male",
-            "birth_date": "2024-02-01",
+            "birth_date": "2024-02-16",
             "analysis": "blood analysis"
         }
     }

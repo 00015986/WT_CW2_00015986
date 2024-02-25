@@ -1,4 +1,5 @@
 include ../head.pug
+title Register Form
 body
     header
         nav.nav
@@ -13,7 +14,7 @@ body
                     li
                         a(href='http://localhost:4000/user/register') Register a new patient
     .container.form-container
-        form#form(action="/api/user/register" method="POST")
+        form#form_register(action="/api/user/register" method="POST")
             div
                 label
                     p Full name
