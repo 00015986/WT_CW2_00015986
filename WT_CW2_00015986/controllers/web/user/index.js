@@ -1,14 +1,26 @@
 // import specific service class
-const user_service = require("../../../services/user/");
 
-const user_controller = {
+const user_register_controller = {
     register: async (req, res) => {
         try {
-            res.render("registerForm.pug"); // Assuming there's a users.pug in the views directory
+            res.render("registerForm.pug");
         } catch (error) {
-            res.status(500).render("error", { error: error.message }); // Assuming there's an error.pug
+            res.status(500).render("error", { error: error.message });
         }
     },
 };
 
-module.exports = user_controller;
+const user_update_controller = {
+    update: async (req, res) => {
+        try {
+            res.render("updateUser.pug");
+        } catch (error) {
+            res.status(500).render("error", { error: error.message });
+        }
+    },
+};
+
+module.exports = {
+    user_register_controller,
+    user_update_controller
+};

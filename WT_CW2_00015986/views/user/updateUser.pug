@@ -17,28 +17,28 @@ body
         form#form_update(action=`/api/user/update/${user.id}` method="POST")
             div
                 h4 #{user.user.fullname}
-                label
+                label(for='fullname')
                     p Full name
-                    input#fullname.input(type='text' value=`${user.user.fullname}` required='')
-                label
+                    input#fullname.input(type='text' value=`${user.user.fullname}` required='' name='fullname')
+                label(for='phone_number')
                     p Phone number
-                    input#phone_number.input(type='text' value=`${user.user.phone_number}` required='')
-                label
+                    input#phone_number.input(type='text' value=`${user.user.phone_number}` required='' name='phone_number')
+                label(for='address')
                     p Address
-                    input#address.input(type='text' value=`${user.user.address}` required='')
+                    input#address.input(type='text' value=`${user.user.address}` required='' name='address')
             .inline-inputs
-                label(for='')
+                label(for='gender')
                     p gender
                     select#gender.input(name='gender' value=`${user.user.gender}`)
                         option(value='male') Male
                         option(value='female') Female
-                label(for='')
+                label(for='birth_date')
                     p Date of birth
-                    input#birth_date.input(type='date' required='' value=`${user.user.birth_date}`)
+                    input#birth_date.input(type='date' value=`${user.user.birth_date}` required='' name='birth_date')
             div
-                label(for='')
+                label(for='analysis')
                     p Patient analysis
-                    input#analysis.input(type='text' value=`${user.user.analysis}` required='')
+                    input#analysis.input(type='text' value=`${user.user.analysis}` required='' name='analysis')
                 div(id="error")
                 .btn-container
                     button#save.btn(type='submit') Update

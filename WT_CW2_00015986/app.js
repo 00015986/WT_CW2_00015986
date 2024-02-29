@@ -23,13 +23,14 @@ app.use("/images", express.static("public/images"));
 
 app.use("/api", api_route);
 app.use("/", web_route);
-app.use((req, res, next) => {
-    if (req.url !== "/user/register" && req.url !== "/all-users") {
-        res.redirect("/user/register");
-    } else {
-        next();
-    }
-});
+
+// app.use((req, res, next) => {
+//     if (req.url !== "/user/register" && req.url !== "/all-users") {
+//         res.redirect("/user/register");
+//     } else {
+//         next();
+//     }
+// });
 
 const PORT = 4000;
 
@@ -76,7 +77,6 @@ app.get("/edit/:id", (req, res) => {
 
 app.get("/delete/:id", (req, res) => {
     const userId = parseInt(req.params.id);
-    console.log(userId);
     fs.readFile("data/users_db.json", "utf8", (err, data) => {
         if (err) {
             console.error(err);
@@ -112,44 +112,5 @@ app.get("/delete/:id", (req, res) => {
         }
     });
 });
-
-// app.post('/api/user/update/:id', (req, res) => {
-// let userId = req.params.id;
-// console.log(req.body)
-// const {fullname, phone_number, address, gender, birth_date, analysis} = req.body;
-
-// fs.readFile('data/users_db.json', 'utf8', (err, data) => {
-//     if (err) {
-//         console.error(err);
-//         return res.status(500).send('Error reading JSON file');
-//     }
-
-//     try {
-//         let users_data = JSON.parse(data);
-//         const userIndex = users_data.findIndex(user => user.id === parseInt(userId));
-//         if (userIndex !== -1) {
-//             users_data[userIndex].user.fullname = fullname;
-//             users_data[userIndex].user.phone_number = phone_number;
-//             users_data[userIndex].user.address = address;
-//             users_data[userIndex].user.gender = gender;
-//             users_data[userIndex].user.birth_date = birth_date;
-//             users_data[userIndex].user.analysis = analysis;
-
-//             fs.writeFile('data/users_db.json', JSON.stringify(users_data, null, 2), (err) => {
-//                 if (err) {
-//                     console.error(err);
-//                     return res.status(500).send('Error updating user');
-//                 }
-//                 res.redirect('/all-users');
-//             });
-//         } else {
-//             res.status(404).send('User not found');
-//         }
-//     } catch (parseError) {
-//         console.error(parseError);
-//         res.status(500).send('Error parsing JSON data');
-//     }
-// });
-// })
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
