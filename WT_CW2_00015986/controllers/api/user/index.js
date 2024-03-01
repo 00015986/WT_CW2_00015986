@@ -16,7 +16,6 @@ const user_update_controller = {
     update: async (req, res) => {
         try {
             const user = await user_update_service.updateUser(req)
-            res.json({ message: "User data updated successfully" });
             res.json(user)
         } catch (error) {
             res.status(500).json({ error: error.message });

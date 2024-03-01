@@ -19,18 +19,9 @@ app.set("views", path.join(__dirname, "views/user"));
 
 app.use("/css", express.static("public/css"));
 app.use("/javaScript", express.static("public/javaScript"));
-app.use("/images", express.static("public/images"));
 
 app.use("/api", api_route);
 app.use("/", web_route);
-
-// app.use((req, res, next) => {
-//     if (req.url !== "/user/register" && req.url !== "/all-users") {
-//         res.redirect("/user/register");
-//     } else {
-//         next();
-//     }
-// });
 
 const PORT = 4000;
 
@@ -44,30 +35,6 @@ app.get("/all-users", (req, res) => {
         try {
             const users_data = JSON.parse(data);
             res.render("users.pug", { users_data });
-        } catch (parseError) {
-            console.error(parseError);
-            res.status(500).send("Error parsing JSON data");
-        }
-    });
-});
-
-app.get("/edit/:id", (req, res) => {
-    const userId = req.params.id;
-    fs.readFile("data/users_db.json", "utf8", (err, data) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send("Error reading JSON file");
-        }
-
-        try {
-            const users_data = JSON.parse(data);
-            const user = users_data.find(
-                (user) => user.id === parseInt(userId)
-            );
-            if (!user) {
-                return res.status(404).send("User not found");
-            }
-            res.render("updateUser", { user });
         } catch (parseError) {
             console.error(parseError);
             res.status(500).send("Error parsing JSON data");

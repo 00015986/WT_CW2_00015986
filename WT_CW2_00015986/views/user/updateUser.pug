@@ -38,6 +38,7 @@ body
             div
                 label(for='analysis')
                     p Patient analysis
+                    input#user_id(type="text" value=`${user.id}` hidden)
                     input#analysis.input(type='text' value=`${user.user.analysis}` required='' name='analysis')
                 div(id="error")
                 .btn-container

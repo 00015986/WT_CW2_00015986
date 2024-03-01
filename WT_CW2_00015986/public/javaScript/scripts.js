@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form_register = document.getElementById("form_register");
-    const form_update = document.getElementById("form_update");
 
     form_register.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -56,64 +55,67 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
                 }
             });
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const form_update = document.getElementById("form_update");
+    const user_id = document.getElementById("user_id").value;
+    console.log(user_id);
+    form_update.addEventListener("submit", function (e) {
+        e.preventDefault();
+        console.log("Hello form");
+        const fullname = document.getElementById("fullname").value;
+        const phone_number = document.getElementById("phone_number").value;
+        const address = document.getElementById("address").value;
+        const gender = document.getElementById("gender").value;
+        const birth_date = document.getElementById("birth_date").value;
+        const analysis = document.getElementById("analysis").value;
+        const errorElement = document.getElementById("error");
+        if (errorElement) errorElement.textContent = "";
 
-        form_update.addEventListener("submit", function (e) {
-            e.preventDefault();
+        if (!validateName(fullname)) {
+            showError("Please enter your name properly.", form_update);
+            return;
+        }
+        if (!validateNumber(phone_number)) {
+            showError("Please enter a valid phone number.", form_update);
+            return;
+        }
+        if (!validateAddress(address)) {
+            showError("Please enter a valid address", form_update);
+            return;
+        }
 
-            const fullname = document.getElementById("fullname").value;
-            const phone_number = document.getElementById("phone_number").value;
-            const address = document.getElementById("address").value;
-            const gender = document.getElementById("gender").value;
-            const birth_date = document.getElementById("birth_date").value;
-            const analysis = document.getElementById("analysis").value;
-
-            const errorElement = document.getElementById("error");
-            if (errorElement) errorElement.textContent = "";
-
-            if (!validateName(fullname)) {
-                showError("Please enter your name properly.", form_update);
-                return;
-            }
-            if (!validateNumber(phone_number)) {
-                showError("Please enter a valid phone number.", form_update);
-                return;
-            }
-            if (!validateAddress(address)) {
-                showError("Please enter a valid address", form_update);
-                return;
-            }
-
-            axios
-                .post(`/api/user/update/${id}`, {
-                    fullname,
-                    phone_number,
-                    address,
-                    gender,
-                    birth_date,
-                    analysis,
-                })
-                .then(function (req, res) {
-                    let userId = req.params.id;
-                    console.log(userId);
+        axios
+            .post(`/api/user/update/${user_id}`, {
+                fullname,
+                phone_number,
+                address,
+                gender,
+                birth_date,
+                analysis,
+            })
+            .then(function (res) {
+                alert("User's data has been updated successfully");
+                location.href = "/all-users";
+            })
+            .catch(function (error) {
+                if (
+                    error.response &&
+                    error.response.data &&
+                    error.response.data.errors
+                ) {
+                    showError(
+                        error.response.data.errors
+                            .map((error) => error.msg)
+                            .join(" "),
+                        form_update
+                    );
+                } else {
                     alert("User's data has been updated successfully");
                     location.href = "/all-users";
-                })
-                .catch(function (error) {
-                    if (error.response && error.response.data) {
-                        showError(
-                            error.response.data.errors
-                                .map((error) => error.msg)
-                                .join(" "),
-                            form_update
-                        );
-                    } else {
-                        showError(
-                            "An error occurred. Please try again.",
-                            form_update
-                        );
-                    }
-                });
-        });
+                }
+            });
     });
 });
 
