@@ -1,0 +1,45 @@
+include ../head.pug
+title Update user
+body
+    header
+        nav.nav
+            p(style='color: rgb(184, 183, 183)')
+                | This web application was created to fulfill Web Technology
+                | module&rsquo;s requirements and does not represent an actual
+                | company or service
+            .div_navigation-links
+                ul.ul-links
+                    li
+                        a(href='http://localhost:4000/all-users') See all patients
+                    li
+                        a(href='http://localhost:4000/user/register') Register a new patient
+    .container.form-container
+        form#form_update(action=`/api/user/update/${user.id}` method="POST")
+            div
+                h4 #{user.user.fullname}
+                label(for='fullname')
+                    p Full name
+                    input#fullname.input(type='text' value=`${user.user.fullname}` required='' name='fullname')
+                label(for='phone_number')
+                    p Phone number
+                    input#phone_number.input(type='text' value=`${user.user.phone_number}` required='' name='phone_number')
+                label(for='address')
+                    p Address
+                    input#address.input(type='text' value=`${user.user.address}` required='' name='address')
+            .inline-inputs
+                label(for='gender')
+                    p gender
+                    select#gender.input(name='gender' value=`${user.user.gender}`)
+                        option(value='male') Male
+                        option(value='female') Female
+                label(for='birth_date')
+                    p Date of birth
+                    input#birth_date.input(type='date' value=`${user.user.birth_date}` required='' name='birth_date')
+            div
+                label(for='analysis')
+                    p Patient analysis
+                    input#user_id(type="text" value=`${user.id}` hidden)
+                    input#analysis.input(type='text' value=`${user.user.analysis}` required='' name='analysis')
+                div(id="error")
+                .btn-container
+                    button#save.btn(type='submit') Update

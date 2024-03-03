@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #ada7f0;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.container {
+    width: 850px;
+    background-color: white;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.form-container {
+    padding: 50px 145px;
+    margin-top: 150px;
+    margin-bottom: 30px;
+}
+
+.input {
+    width: 100%;
+    height: 55px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    outline-color: #7a5cfa;
+    margin-top: 8px;
+    margin-bottom: 30px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+label {
+    font-size: 12px;
+    color: #666666;
+}
+
+.inline-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inline-inputs .input {
+    width: 270px;
+}
+
+.btn {
+    width: 170px;
+    height: 55px;
+    background-color: #7a5cfa;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.clients {
+    padding: 25px 75px;
+    border-bottom: 1px solid #ada7f0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 25px;
+    row-gap: 25px;
+}
+
+.user {
+    background-color: #ada7f0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 15px;
+}
+
+.user p {
+    margin-top: 5px;
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+.change_button {
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+    outline: 0px;
+    border: none;
+    margin-top: 5px;
+}
+.change_button a {
+    color: whitesmoke;
+}
+.edit_button {
+    background-color: green;
+}
+.delete_button {
+    background-color: rgb(142, 29, 29);
+}

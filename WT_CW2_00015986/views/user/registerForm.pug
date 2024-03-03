@@ -1,0 +1,43 @@
+include ../head.pug
+title Register Form
+body
+    header
+        nav.nav
+            p(style='color: rgb(184, 183, 183)')
+                | This web application was created to fulfill Web Technology
+                | module&rsquo;s requirements and does not represent an actual
+                | company or service
+            .div_navigation-links
+                ul.ul-links
+                    li
+                        a(href='http://localhost:4000/all-users') See all patients
+                    li
+                        a(href='http://localhost:4000/user/register') Register a new patient
+    .container.form-container
+        form#form_register(action="/api/user/register" method="POST")
+            div
+                label
+                    p Full name
+                    input#fullname.input(type='text' placeholder='John Doe' required='')
+                label
+                    p Phone number
+                    input#phone_number.input(type='text' placeholder='+998-97-770-70-70' required='')
+                label
+                    p Address
+                    input#address.input(type='text' placeholder='City, district, street' required='')
+            .inline-inputs
+                label(for='')
+                    p gender
+                    select#gender.input(name='gender')
+                        option(value='male') Male
+                        option(value='female') Female
+                label(for='')
+                    p Date of birth
+                    input#birth_date.input(type='date' required='')
+            div
+                label(for='')
+                    p Patient analysis
+                    input#analysis.input(type='text' placeholder='Analysis type' required='')
+                div(id="error")
+                .btn-container
+                    button#save.btn(type='submit') Save
