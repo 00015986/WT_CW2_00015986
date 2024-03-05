@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("User's data has been updated successfully");
                 location.href = "/all-users";
             })
+            /*
             .catch(function (error) {
                 if (
                     error.response &&
@@ -112,10 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         form_update
                     );
                 } else {
-                    alert("User's data has been updated successfully");
-                    location.href = "/all-users";
+                    console.log("error");
                 }
-            });
+            });*/
     });
 });
 

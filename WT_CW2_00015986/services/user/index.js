@@ -45,41 +45,16 @@ const user_update_service = {
         return users;
     },
     updateUser(req, res) {
-        const userId = req.params.id;
-        return new Promise((resolve, reject) => {
-            fs.readFile(global.users_db, "utf8", (err, data) => {
-                if (err) {
-                    return reject(err);
-                }
-
-                try {
-                    let users_data = JSON.parse(data);
-                    const userIndex = users_data.findIndex(
-                        (user) => user.id === parseInt(userId)
-                    );
-                    if (userIndex !== -1) {
-                        users_data[userIndex].user = {
-                            ...users_data[userIndex].user,
-                            ...req.body,
-                        };
-                        fs.writeFileSync(
-                            global.users_db,
-                            JSON.stringify(users_data, null, 4),
-                            (err) => {
-                                if (err) {
-                                    return reject(err);
-                                }
-                                resolve();
-                            }
-                        );
-                    } else {
-                        reject(new Error("User not found"));
-                    }
-                } catch (error) {
-                    reject(error);
-                }
-            });
-        });
+        const id = req.params.id;
+        const updateData = req.body
+        const userIndex = users.findIndex(user => user.id == id)
+        
+        if (userIndex === -1) {
+            return null
+        }
+        users[userIndex].user = { ...users[userIndex].user, ...updateData }
+		writeToFile(users)
+        return users[userIndex]
     },
 };
 
